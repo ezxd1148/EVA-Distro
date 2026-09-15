@@ -32,17 +32,31 @@ Installation uses a graphical theme for choosing an OS, then switches to a full-
 
 GRUB displays the selected entry name
 
-
 ## Dissecting install.sh
 
-This scripts takes in 3 parameters
+Set -eu flag
 
-- uninstall|--uninstall
-- install | --install
-- -h|--help|help
+-e: Exits the script on error
+-u: Treat unset variables as an error
 
-Then at the end it will exe "$SCRIPT_DIR/bin/eva" with its action(Install/uninstall)  $EVA_ACTION" and $@
+It takes in 3 parametes, uninstall install and help.
 
-eva is another bash script
+then execute script from SCRIPT_DIR/bin/eva then inputs in the EVA_ACTION from user initial input "./install.sh (install/uninstall)"
 
+## Dissecting eva
 
+Set -Eeuo pipefail flag
+
+-E: Exit on error
+-e: Exit on error
+-u: Treat unset variables as an error
+-o: Fail on error
+-p: Fail on error
+
+Then takes in current SCRIPT_DIR && pwd meaning fetching the current directory
+
+It will check if user run the script outside the directory, then source the script.
+
+basically it checks if the user is in directory and if installation file are present
+
+Then it sets in a bunch of functions
