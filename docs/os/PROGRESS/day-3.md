@@ -1,0 +1,3 @@
+- Explored a little more about [docs here](../TERMS/evangelion.md)
+- Explored about [initramfs](../TERMS/initramfs.md)
+- 
